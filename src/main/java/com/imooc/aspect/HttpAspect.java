@@ -17,15 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 public class HttpAspect {
-
+    //其实就是system.out.printl 不过有日志信息
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
-
+    //两*点表示任意参数的方法都会拦截 增加切面
     @Pointcut("execution(public * com.imooc.controller.GirlController.*(..))")
     public void log() {
     }
-
-    @Before("log()")
+    @Before("log()")//找到log方法 就相当于找到 在什么类下调用这个方法之前
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
@@ -50,7 +49,7 @@ public class HttpAspect {
     public void doAfter() {
         logger.info("222222222222");
     }
-
+    //请求方法的具体返回内容
     @AfterReturning(returning = "object", pointcut = "log()")
     public void doAfterReturning(Object object) {
         logger.info("response={}", object.toString());

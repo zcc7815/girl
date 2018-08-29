@@ -6,6 +6,7 @@ import com.imooc.enums.ResultEnum;
  * Created by 廖师兄
  * 2017-01-21 14:05
  */
+//spring 抛出的异常只对 RuntimeException 有回滚效果
 public class GirlException extends RuntimeException{
 
     private Integer code;

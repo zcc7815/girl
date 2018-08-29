@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * 2017-02-14 23:20
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest //运行启动整个spring-boot
 public class GirlServiceTest {
 
     @Autowired
@@ -23,6 +23,7 @@ public class GirlServiceTest {
     @Test
     public void findOneTest() {
         Girl girl = girlService.findOne(73);
+        //如果表达式为true，则执行后面代码 否则输出一条错误信息 并终止程序
         Assert.assertEquals(new Integer(13), girl.getAge());
     }
 }

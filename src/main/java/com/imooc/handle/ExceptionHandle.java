@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by 廖师兄
  * 2017-01-21 13:59
  */
-@ControllerAdvice
+@ControllerAdvice//抛出异常之后会进入到这个类统一处理
 public class ExceptionHandle {
-
+    //打印日志
     private final static Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);
-
+    //捕获的异常类
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result handle(Exception e) {

@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureMockMvc
+@AutoConfigureMockMvc//通过地址来测试
 public class GirlControllerTest {
 
     @Autowired
@@ -24,6 +24,7 @@ public class GirlControllerTest {
 
     @Test
     public void girlList() throws Exception {
+        //输入测试的地址后缀来检查是否正确对应方法
         mvc.perform(MockMvcRequestBuilders.get("/girls"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().string("abc"));

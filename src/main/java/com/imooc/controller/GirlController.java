@@ -47,6 +47,7 @@ public class GirlController {
     @PostMapping(value = "/girls")
     public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            //BindingResult bindingResult 验证错误的返回值对象
             return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
 
@@ -92,7 +93,7 @@ public class GirlController {
         girlService.insertTwo();
     }
 
-    @GetMapping(value = "girls/getAge/{id}")
+    @GetMapping(value = "girls/getAge/{id}")//
     public void getAge(@PathVariable("id") Integer id) throws Exception{
         girlService.getAge(id);
     }

@@ -4,6 +4,7 @@ package com.imooc.enums;
  * Created by 廖师兄
  * 2017-01-21 14:23
  */
+//枚举类型返回异常是什么 把它封装起来
 public enum ResultEnum {
     UNKONW_ERROR(-1, "未知错误"),
     SUCCESS(0, "成功"),
